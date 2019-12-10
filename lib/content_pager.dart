@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shahe_flutter_app/first_page.dart';
 
-
-
 class ContentPager extends StatefulWidget {
   final ValueChanged<int> onPageChanged;
   final ContentPagerController contentPagerController;

@@ -14,12 +14,6 @@ class ContentPager extends StatefulWidget {
 
 class _ContentPagerState extends State<ContentPager> {
   PageController _pageController = new PageController(viewportFraction: 1);
-  static List<Color> _colors = [
-    Colors.blue,
-    Colors.red,
-    Colors.deepOrange,
-    Colors.teal,
-  ];
 
   @override
   void initState() {

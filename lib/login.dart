@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
 import 'package:shahe_flutter_app/tab_navigator.dart';
 
-import 'first_page.dart';
+import 'page/first_page.dart';
 import 'loading_dialog.dart';
 
 class LoginPage extends StatefulWidget {

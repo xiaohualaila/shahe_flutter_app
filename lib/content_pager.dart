@@ -1,8 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:shahe_flutter_app/first_page.dart';
-import 'package:shahe_flutter_app/me_page.dart';
+import 'package:shahe_flutter_app/page/first_page.dart';
+import 'package:shahe_flutter_app/page/me_page.dart';
+
+import 'page/yingji_stop_page.dart';
 
 class ContentPager extends StatefulWidget {
   final ValueChanged<int> onPageChanged;
@@ -35,7 +37,7 @@ class _ContentPagerState extends State<ContentPager> {
             controller: _pageController,
             children: <Widget>[
               FirstPage(),
-              FirstPage(),
+              YingjiPage(),
               FirstPage(),
               MePage(),
 

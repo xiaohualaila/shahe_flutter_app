@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class FirstPage extends StatefulWidget {
   @override
@@ -190,28 +189,6 @@ weatherContent() {
         borderRadius: BorderRadius.circular(19), color: Color(0x30000000)),
   );
 }
-
-//bottomContent() {
-//  return PhysicalModel(
-//    color: Colors.transparent,
-//    borderRadius: BorderRadius.circular(20),
-//    clipBehavior: Clip.antiAlias, //抗锯齿
-//
-//    child: Container(
-//      decoration: BoxDecoration(color: Colors.white),
-//
-//      padding: EdgeInsets.all(20),
-//      margin: EdgeInsets.fromLTRB(30, 80, 30, 10),
-//      child: Column(
-//        children: <Widget>[
-//          Expanded(
-//            child: _List(),
-//          ),
-//        ],
-//      ),
-//    ),
-//  );
-//}
 
 bottomContent() {
   return Expanded(

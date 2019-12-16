@@ -121,7 +121,9 @@ class _MePageState extends State<MePage> {
           child: Padding(
             padding: EdgeInsets.only(left: 20, right: 20),
             child: RaisedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5),
               ),

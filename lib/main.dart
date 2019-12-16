@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shahe_flutter_app/about_soft.dart';
+import 'package:shahe_flutter_app/system_setup.dart';
+import 'package:shahe_flutter_app/update_app.dart';
 import 'login.dart';
 
 void main() => runApp(MyApp());
@@ -20,7 +23,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       home: LoginPage(),
     );

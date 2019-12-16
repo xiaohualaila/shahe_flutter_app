@@ -129,12 +129,8 @@ class _YingjiStopState extends State<YingjiPage> {
       child: Column(
         children: <Widget>[
           item_title('晋中能源股份有限公司章村矿矸石热电厂'),
-          Container(
-            margin: EdgeInsets.only(top: 5),
-            width: 300,
-            height: 1,
-            color: Colors.greenAccent,
-          ),
+          line_green(),
+
           Padding(
             padding: EdgeInsets.only(top: 15, bottom: 15),
             child: Row(
@@ -150,6 +146,14 @@ class _YingjiStopState extends State<YingjiPage> {
     );
   }
 
+  line_green(){
+    return  Divider(
+      height: 10,
+      color: Colors.greenAccent,
+      indent: 5,
+      endIndent: 5,
+    );
+  }
   bottomContent1() {
     return Container(
       margin: EdgeInsets.only(top: 5, left: 10, right: 10),
@@ -163,12 +167,7 @@ class _YingjiStopState extends State<YingjiPage> {
       child: Column(
         children: <Widget>[
           item_title('隆兴化工有限公司'),
-          Container(
-            margin: EdgeInsets.only(top: 5),
-            width: 300,
-            height: 1,
-            color: Colors.greenAccent,
-          ),
+          line_green(),
         ],
       ),
     );

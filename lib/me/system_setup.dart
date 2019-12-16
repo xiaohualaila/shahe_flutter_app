@@ -25,7 +25,7 @@ class _SetupPageState extends State<SetupPage> {
         ),
       ),
       body: Container(
-        margin: EdgeInsets.only(top: 20,left: 20,right:20),
+        margin: EdgeInsets.only(top: 20, left: 20, right: 20),
         child: Column(
           children: <Widget>[
             Row(
@@ -41,9 +41,14 @@ class _SetupPageState extends State<SetupPage> {
                   '版本号v1.0',
                   style: TextStyle(color: Colors.grey),
                 ),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.green,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'update_app');
+                  },
+                  child: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.green,
+                  ),
                 )
               ],
             ),
@@ -60,9 +65,14 @@ class _SetupPageState extends State<SetupPage> {
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.green,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'about_soft');
+                  },
+                  child: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.green,
+                  ),
                 )
               ],
             ),

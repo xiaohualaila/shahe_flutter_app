@@ -84,11 +84,13 @@ class _FirstPageState extends State<FirstPage> {
       margin: EdgeInsets.only(left: 10),
       child: Chip(
         avatar: Icon(
-          Icons.local_gas_station,
+          Icons.location_on,
           color: Colors.white,
+          size: 18,
         ),
-        label: Text('沙河'),
+        label: Text('沙河',style: TextStyle(color: Colors.white),),
         padding: EdgeInsets.fromLTRB(12, 3, 12, 3),
+   //     backgroundColor: Colors.black54,
         backgroundColor: ColorUtil.color('#077DFF'),
       ),
     );

@@ -86,10 +86,15 @@ class _MePageState extends State<MePage> {
                 ),
                 Expanded(child: Text('文字大小')),
                 Text('适中'),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.green,
-                ),
+                GestureDetector(
+                  onTap: () {
+                    //Navigator.pushNamed(context, 'setup');
+                  },
+                  child: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.green,
+                  ),
+                )
               ],
             ),
             Divider(
@@ -103,9 +108,14 @@ class _MePageState extends State<MePage> {
                   color: Colors.green,
                 ),
                 Expanded(child: Text('系统设置')),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.green,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'setup');
+                  },
+                  child: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.green,
+                  ),
                 ),
               ],
             ),

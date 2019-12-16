@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shahe_flutter_app/about_soft.dart';
-import 'package:shahe_flutter_app/system_setup.dart';
+import 'package:shahe_flutter_app/me/about_soft.dart';
+import 'package:shahe_flutter_app/me/system_setup.dart';
 import 'package:shahe_flutter_app/tab_navigator.dart';
-import 'package:shahe_flutter_app/update_app.dart';
+import 'package:shahe_flutter_app/me/update_app.dart';
 import 'login.dart';
 
 void main() => runApp(MyApp());

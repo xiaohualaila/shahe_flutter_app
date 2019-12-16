@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_color_plugin/flutter_color_plugin.dart';
 
 class FirstPage extends StatefulWidget {
   @override
@@ -40,6 +42,7 @@ class _FirstPageState extends State<FirstPage> {
 
   topContent() {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         location(), //地址
         updateTime('更新时间:'),
@@ -49,30 +52,45 @@ class _FirstPageState extends State<FirstPage> {
   }
 
   backgound() {
-    return Image.asset(
-      'assets/images/2.0x/first_bg.png',
-      fit: BoxFit.cover,
+    return FractionallySizedBox(
+      heightFactor: 1,
+      child:Image.asset(
+        'assets/images/2.0x/first_bg.png',
+        fit: BoxFit.fill,
+      ) ,
     );
   }
 
   location() {
+//    return Container(
+//      margin: EdgeInsets.only(top: 10, left: 10),
+//      padding: EdgeInsets.fromLTRB(12, 3, 12, 3),
+//      child: Row(
+//        children: <Widget>[
+//          Icon(
+//            Icons.add,
+//            color: Colors.white,
+//          ),
+//          Text(
+//            '沙河',
+//            style: TextStyle(color: Colors.white),
+//          )
+//        ],
+//      ),
+//      decoration: BoxDecoration(
+//          borderRadius: BorderRadius.circular(19), color: Color(0x30000000)),
+//    );
     return Container(
-      margin: EdgeInsets.only(top: 10, left: 10),
-      padding: EdgeInsets.fromLTRB(12, 3, 12, 3),
-      child: Row(
-        children: <Widget>[
-          Icon(
-            Icons.add,
-            color: Colors.white,
-          ),
-          Text(
-            '沙河',
-            style: TextStyle(color: Colors.white),
-          )
-        ],
+      margin: EdgeInsets.only(left: 10),
+      child: Chip(
+        avatar: Icon(
+          Icons.local_gas_station,
+          color: Colors.white,
+        ),
+        label: Text('沙河'),
+        padding: EdgeInsets.fromLTRB(12, 3, 12, 3),
+        backgroundColor: ColorUtil.color('#077DFF'),
       ),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(19), color: Color(0x30000000)),
     );
   }
 
@@ -192,19 +210,16 @@ weatherContent() {
 
 bottomContent() {
   return Expanded(
-      child: Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey, blurRadius: 20, offset: Offset(0, 10))
-                ]
-            ),
-          margin: EdgeInsets.only(top: 100, left: 30, right: 30, bottom: 30),
-          padding: EdgeInsets.only(top: 20),
-          child:_List()
-      ));
+      child: Card(
+        margin: EdgeInsets.only(top: 100, left: 30, right: 30, bottom: 30),
+        color: Colors.white,
+        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10.0))),  //设置圆角
+        elevation: 5,
+        child: Container(
+          padding: EdgeInsets.all(10),
+          child: _List(),
+        ),
+  ));
 }
 
 item(String title) {
@@ -225,9 +240,9 @@ item(String title) {
 _List() {
   return GridView.count(
     crossAxisCount: 3,
-    mainAxisSpacing: 5,   //垂直间距
-    crossAxisSpacing: 5,    //水平间距
-   // childAspectRatio: 0.7, //长宽比
+    mainAxisSpacing: 5, //垂直间距
+    crossAxisSpacing: 5, //水平间距
+    // childAspectRatio: 0.7, //长宽比
     children: LIST.map((item) {
       return _item(item);
     }).toList(),

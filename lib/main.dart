@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shahe_flutter_app/about_soft.dart';
+import 'package:shahe_flutter_app/system_setup.dart';
+import 'package:shahe_flutter_app/tab_navigator.dart';
+import 'package:shahe_flutter_app/update_app.dart';
 import 'login.dart';
 
 void main() => runApp(MyApp());
@@ -20,10 +24,29 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       home: LoginPage(),
+      routes: <String,WidgetBuilder>{
+        'about_soft':(BuildContext context)=>AboutSoftPage(),
+        'setup':(BuildContext context)=>SetupPage(),
+        'update_app':(BuildContext context)=>UpdateAppPage(),
+        'tab_navigator':(BuildContext context)=>TabNavigator(),
+
+      }
     );
+  }
+}
+
+class RouteNavigatorState extends StatefulWidget {
+  @override
+  _RouteNavigatorStateState createState() => _RouteNavigatorStateState();
+}
+
+class _RouteNavigatorStateState extends State<RouteNavigatorState> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
 

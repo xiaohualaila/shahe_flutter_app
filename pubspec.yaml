@@ -26,8 +26,7 @@ dependencies:
 
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
   keyboard_actions: ^2.1.1+1
-
-
+  flutter_color_plugin: ^0.0.2
 
 dev_dependencies:
   flutter_test:

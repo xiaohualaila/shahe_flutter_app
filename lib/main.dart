@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shahe_flutter_app/about_soft.dart';
 import 'package:shahe_flutter_app/system_setup.dart';
+import 'package:shahe_flutter_app/tab_navigator.dart';
 import 'package:shahe_flutter_app/update_app.dart';
 import 'login.dart';
 
@@ -26,7 +27,26 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
       ),
       home: LoginPage(),
+      routes: <String,WidgetBuilder>{
+        'about_soft':(BuildContext context)=>AboutSoftPage(),
+        'setup':(BuildContext context)=>SetupPage(),
+        'update_app':(BuildContext context)=>UpdateAppPage(),
+        'tab_navigator':(BuildContext context)=>TabNavigator(),
+
+      }
     );
+  }
+}
+
+class RouteNavigatorState extends StatefulWidget {
+  @override
+  _RouteNavigatorStateState createState() => _RouteNavigatorStateState();
+}
+
+class _RouteNavigatorStateState extends State<RouteNavigatorState> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
 

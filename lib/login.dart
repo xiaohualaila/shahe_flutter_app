@@ -150,10 +150,12 @@ class _LoginPageState extends State<LoginPage> {
             // _login(username, password);
 //            print(username);
 //            print(password);
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (BuildContext context) {
-              return TabNavigator();
-            }));
+//            Navigator.of(context)
+//                .push(MaterialPageRoute(builder: (BuildContext context) {
+//              return TabNavigator();
+//            }));
+             Navigator.pushNamed(context, 'tab_navigator');
+          
           },
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),

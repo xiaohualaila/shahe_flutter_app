@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_color_plugin/flutter_color_plugin.dart';
 
 class MePage extends StatefulWidget {
   @override
@@ -10,10 +11,7 @@ class _MePageState extends State<MePage> {
 
   @override
   Widget build(BuildContext context) {
-    paddingTop = MediaQuery
-        .of(context)
-        .padding
-        .top;
+    paddingTop = MediaQuery.of(context).padding.top;
     return Column(
       children: <Widget>[topContent(), middleContent(), _bottomButton()],
     );
@@ -51,7 +49,8 @@ class _MePageState extends State<MePage> {
                   textAlign: TextAlign.start,
                   style: TextStyle(color: Colors.white),
                 ),
-                Text('账号：1245', style: TextStyle(color: Colors.white))
+                Text('账号：1245',
+                    style: TextStyle(color: ColorUtil.color('FFFFFF')))
               ],
             ),
           ),
@@ -70,72 +69,70 @@ class _MePageState extends State<MePage> {
   }
 
   middleContent() {
-    return
-      Container(
-          margin: EdgeInsets.only(left: 10, top: 20, right: 10),
-          padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              border: Border.all(color: Color(0xFFE0E0E0), width: 1),
-
-              color: Colors.white
-          ),
-          child: Column(
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Icon(Icons.brightness_auto, color: Colors.green,),
-                  Expanded(child: Text('文字大小')),
-                  Text('适中'),
-                  Icon(Icons.arrow_forward_ios, color: Colors.green,),
-
-                ],
-              ),
-
-              Container(
-                width: 300,
-                height: 1,
-                margin: EdgeInsets.only(top: 10, bottom: 10),
-                decoration: BoxDecoration(color: Color(0xFFE0E0E0)),
-              ),
-
-              Row(
-                children: <Widget>[
-                  Icon(Icons.settings, color: Colors.green,),
-                  Expanded(child: Text('系统设置')),
-                  Icon(Icons.arrow_forward_ios, color: Colors.green,),
-
-
-                ],
-              ),
-            ],
-          )
-      );
+    return Container(
+        margin: EdgeInsets.only(left: 10, top: 20, right: 10),
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5),
+            border: Border.all(color: Color(0xFFE0E0E0), width: 1),
+            color: Colors.white),
+        child: Column(
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Icon(
+                  Icons.brightness_auto,
+                  color: Colors.green,
+                ),
+                Expanded(child: Text('文字大小')),
+                Text('适中'),
+                Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.green,
+                ),
+              ],
+            ),
+            Divider(
+              color: Color(0xFFE0E0E0),
+              height: 20,
+            ),
+            Row(
+              children: <Widget>[
+                Icon(
+                  Icons.settings,
+                  color: Colors.green,
+                ),
+                Expanded(child: Text('系统设置')),
+                Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.green,
+                ),
+              ],
+            ),
+          ],
+        ));
   }
-
 
   _bottomButton() {
     return FractionallySizedBox(
-
-          widthFactor: 1,
-          child: Container(
-            margin: EdgeInsets.only(top: 300),
-            child: Padding(
-              padding: EdgeInsets.only(left: 20, right: 20),
-              child: RaisedButton(
-                onPressed: () {},
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                padding: EdgeInsets.only(top: 13, bottom: 15),
-                color: Colors.green,
-                child: Text(
-                  '退出登录',
-                  style: TextStyle(color: Colors.white),
-                ),
+        widthFactor: 1,
+        child: Container(
+          margin: EdgeInsets.only(top: 300),
+          child: Padding(
+            padding: EdgeInsets.only(left: 20, right: 20),
+            child: RaisedButton(
+              onPressed: () {},
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5),
+              ),
+              padding: EdgeInsets.only(top: 13, bottom: 15),
+              color: Colors.green,
+              child: Text(
+                '退出登录',
+                style: TextStyle(color: Colors.white),
               ),
             ),
-          )
-        );
+          ),
+        ));
   }
 }

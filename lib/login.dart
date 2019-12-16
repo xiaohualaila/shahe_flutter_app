@@ -58,87 +58,82 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Column(
+      body: Stack(
         children: <Widget>[
-            Stack(
-              alignment: AlignmentDirectional.center,
+          backgound(),
+          Container(
+            padding: EdgeInsets.only(
+              left: 30,
+              right: 30,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Image.asset(
-                  'assets/images/2.0x/logo.png',
-                  fit: BoxFit.fill,
+                Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.local_gas_station,
+                      color: Colors.green,
+                    ),
+                    Text(
+                      '账号:',
+                      style: TextStyle(color: Colors.green, fontSize: 18),
+                    )
+                  ],
                 ),
-
-//                Positioned(child: Text('版本号v0.1'),
-//                bottom: 0,),
-                Container(
-//                  margin: EdgeInsets.only(
-//                      left: 10, top: 120, right: 10, bottom: 120),
-                  padding:
-                      EdgeInsets.only(left: 30, top: 30, right: 30, bottom: 30),
-                  child: Column(
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Icon(
-                            Icons.local_gas_station,
-                            color: Colors.green,
-                          ),
-                          Text(
-                            '账号:',
-                            style: TextStyle(color: Colors.green, fontSize: 18),
-                          )
-                        ],
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(2, 2, 2, 2),
-                        child: TextField(
-                          focusNode: _userNameFocusNode,
-                          autofocus: false,
-                          controller: _userNameController,
-                          decoration: InputDecoration(
+                Padding(
+                  padding: EdgeInsets.fromLTRB(2, 2, 2, 2),
+                  child: TextField(
+                    focusNode: _userNameFocusNode,
+                    autofocus: false,
+                    controller: _userNameController,
+                    decoration: InputDecoration(
 //                        labelText: "用户名",
-                            hintText: "请输入用户名",
-                            labelStyle: TextStyle(color: Colors.green),
-                          ),
-                          maxLines: 1,
-                        ),
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Icon(
-                            Icons.local_gas_station,
-                            color: Colors.green,
-                          ),
-                          Text(
-                            '密码:',
-                            style: TextStyle(color: Colors.green, fontSize: 18),
-                          )
-                        ],
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(2, 2, 2, 2),
-                        child: TextField(
-                          focusNode: _psdFocusNode,
-                          controller: _psdController,
-                          decoration: InputDecoration(
-                            //     labelText: "密码",
-                            labelStyle: TextStyle(color: Colors.green),
-                            hintText: "请输入密码",
-                          ),
-                          obscureText: true,
-                          maxLines: 1,
-                        ),
-                      ),
-                      _bottomButton()
-                    ],
+                      hintText: "请输入用户名",
+                      labelStyle: TextStyle(color: Colors.green),
+                    ),
+                    maxLines: 1,
                   ),
                 ),
+                Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.local_gas_station,
+                      color: Colors.green,
+                    ),
+                    Text(
+                      '密码:',
+                      style: TextStyle(color: Colors.green, fontSize: 18),
+                    )
+                  ],
+                ),
+                TextField(
+                  focusNode: _psdFocusNode,
+                  controller: _psdController,
+                  decoration: InputDecoration(
+                    //     labelText: "密码",
+                    labelStyle: TextStyle(color: Colors.green),
+                    hintText: "请输入密码",
+                  ),
+                  obscureText: true,
+                  maxLines: 1,
+                ),
+                _bottomButton()
               ],
             ),
+          ),
+        ],
+      ),
+    );
+  }
 
-          ],
-        ),
+  backgound() {
+    return FractionallySizedBox(
+      widthFactor: 1,
+      heightFactor: 1,
+      child: Image.asset(
+        'assets/images/2.0x/login_bg.png',
+        fit: BoxFit.fill,
       ),
     );
   }
@@ -147,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
     return FractionallySizedBox(
       widthFactor: 1,
       child: Padding(
-        padding: EdgeInsets.only(left: 10, right: 10,top: 40),
+        padding: EdgeInsets.only(left: 10, right: 10, top: 40),
         child: RaisedButton(
           onPressed: () {
             String username = _userNameController.text;
@@ -155,7 +150,8 @@ class _LoginPageState extends State<LoginPage> {
             // _login(username, password);
 //            print(username);
 //            print(password);
-            Navigator.of(context).push(MaterialPageRoute(builder:(BuildContext context){
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (BuildContext context) {
               return TabNavigator();
             }));
           },

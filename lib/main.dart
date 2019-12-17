@@ -3,6 +3,9 @@ import 'package:shahe_flutter_app/me/about_soft.dart';
 import 'package:shahe_flutter_app/me/system_setup.dart';
 import 'package:shahe_flutter_app/tab_navigator.dart';
 import 'package:shahe_flutter_app/me/update_app.dart';
+import 'package:shahe_flutter_app/test/http.dart';
+import 'package:shahe_flutter_app/test/http_async.dart';
+import 'package:shahe_flutter_app/test/share_prefs.dart';
 import 'login.dart';
 
 void main() => runApp(MyApp());
@@ -25,6 +28,7 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.green,
+        fontFamily: 'aliIcon'
       ),
       home: LoginPage(),
       routes: <String,WidgetBuilder>{
@@ -32,7 +36,9 @@ class MyApp extends StatelessWidget {
         'setup':(BuildContext context)=>SetupPage(),
         'update_app':(BuildContext context)=>UpdateAppPage(),
         'tab_navigator':(BuildContext context)=>TabNavigator(),
-
+        'http_test':(BuildContext context)=>HttpDemo(),
+        'http_async_test':(BuildContext context)=>HttpAsyncDemo(),
+        'share_prefs':(BuildContext context)=>SharePrefsDemo(),
       }
     );
   }

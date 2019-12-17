@@ -100,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     Text(
                       '密码:',
-                      style: TextStyle(color: Colors.green, fontSize: 18),
+                      style: TextStyle(color: Colors.green, fontSize: 18,),
                     )
                   ],
                 ),
@@ -128,10 +128,8 @@ class _LoginPageState extends State<LoginPage> {
     return FractionallySizedBox(
       widthFactor: 1,
       heightFactor: 1,
-      child: Image.asset(
-        'assets/images/2.0x/login_bg.png',
-        fit: BoxFit.fill,
-      ),
+      //child:Image(image: AssetImage('images/login_bg.png'),  fit: BoxFit.fill,),
+      child: Image.asset('images/login_bg.png',  fit: BoxFit.fill,),
     );
   }
 

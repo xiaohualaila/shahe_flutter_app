@@ -33,7 +33,7 @@ class _SetupPageState extends State<AboutSoftPage> {
                   Container(
                     margin: EdgeInsets.only(top: 40,bottom: 20),
                     child:Image.asset(
-                      'assets/images/2.0x/map_shijing.png',
+                      'images/map_shijing.png',
                       fit: BoxFit.fill,
                     ),
                   ),

@@ -80,6 +80,74 @@ class _SetupPageState extends State<SetupPage> {
               color: Color(0xFFE0E0E0),
               height: 20,
             ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  child: Text(
+                    'http测试',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'http_test');
+                  },
+                  child: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.green,
+                  ),
+                )
+              ],
+            ),
+            Divider(
+              color: Color(0xFFE0E0E0),
+              height: 20,
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  child: Text(
+                    'http 异步测试',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'http_async_test');
+                  },
+                  child: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.green,
+                  ),
+                )
+              ],
+            ),
+            Divider(
+              color: Color(0xFFE0E0E0),
+              height: 20,
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  child: Text(
+                    'shared_preferences',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'share_prefs');
+                  },
+                  child: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.green,
+                  ),
+                )
+              ],
+            ),
           ],
         ),
       ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_color_plugin/flutter_color_plugin.dart';
 
 class FirstPage extends StatefulWidget {
@@ -54,10 +53,7 @@ class _FirstPageState extends State<FirstPage> {
   backgound() {
     return FractionallySizedBox(
       heightFactor: 1,
-      child:Image.asset(
-        'assets/images/2.0x/first_bg.png',
-        fit: BoxFit.fill,
-      ) ,
+      child:Image.asset('images/first_bg.png', fit: BoxFit.fill)
     );
   }
 

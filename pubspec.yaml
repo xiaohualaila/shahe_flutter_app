@@ -81,11 +81,6 @@ flutter:
     - family: aliIcon
       fonts:
         - asset: fonts/ZCOOLKuaiLe-Regular.ttf
-    - family: familyFontStyle
-      fonts:
-        - asset: fonts/ZCOOLQingKeHuangYou-Regular.ttf
-
-#  fonts:
-#    - family: aaa
+#    - family: familyFontStyle
 #      fonts:
-#        - asset: fonts/ZCOOLKuaiLe-Regular.ttf
+#        - asset: fonts/ZCOOLQingKeHuangYou-Regular.ttf

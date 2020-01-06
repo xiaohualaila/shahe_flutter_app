@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shahe_flutter_app/page/MapPage.dart';
 import 'package:shahe_flutter_app/page/first_page.dart';
 import 'package:shahe_flutter_app/page/me_page.dart';
 
@@ -38,7 +39,7 @@ class _ContentPagerState extends State<ContentPager> {
             children: <Widget>[
               FirstPage(),
               YingjiPage(),
-              FirstPage(),
+              MapPage(),
               MePage(),
 
             ],

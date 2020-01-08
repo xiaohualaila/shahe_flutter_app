@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_color_plugin/flutter_color_plugin.dart';
-
-class FirstPage extends StatefulWidget {
-  @override
-  _FirstPageState createState() => _FirstPageState();
-}
+import 'package:shahe_flutter_app/dao/first_dao.dart';
 
 const LIST = [
   {'title': '企业列表'},
@@ -15,7 +11,13 @@ const LIST = [
   {'title': '排放检测'}
 ];
 
+class FirstPage extends StatefulWidget {
+  @override
+  _FirstPageState createState() => _FirstPageState();
+}
+
 class _FirstPageState extends State<FirstPage> {
+  bool _loading = true;
   @override
   Widget build(BuildContext context) {
     double paddingTop = MediaQuery.of(context).padding.top;
@@ -38,6 +40,29 @@ class _FirstPageState extends State<FirstPage> {
       ],
     );
   }
+
+  @override
+  Future<void> initState() {
+    _handleRefresh();
+    super.initState();
+  }
+
+  Future<Null> _handleRefresh() async {
+    try {
+    await FirstDao.fetch();
+      setState(() {
+
+      //  _loading = false;
+      });
+    } catch (e) {
+      print(e);
+      setState(() {
+    //    _loading = false;
+      });
+    }
+    return null;
+  }
+
 
   topContent() {
     return Row(

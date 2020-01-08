@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shahe_flutter_app/me/about_soft.dart';
 import 'package:shahe_flutter_app/me/system_setup.dart';
-import 'package:shahe_flutter_app/tab_navigator.dart';
+import 'package:shahe_flutter_app/page/welcome_page.dart';
+import 'package:shahe_flutter_app/navigator/tab_navigator.dart';
 import 'package:shahe_flutter_app/me/update_app.dart';
 import 'package:shahe_flutter_app/test/http.dart';
 import 'package:shahe_flutter_app/test/http_async.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,
-        fontFamily: 'aliIcon'
+//        fontFamily: 'aliIcon'//设置字体
       ),
       home: LoginPage(),
       routes: <String,WidgetBuilder>{

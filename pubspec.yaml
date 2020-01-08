@@ -80,7 +80,7 @@ flutter:
   fonts:
     - family: aliIcon
       fonts:
-        - asset: fonts/ZCOOLKuaiLe-Regular.ttf
+#        - asset: fonts/ZCOOLKuaiLe-Regular.ttf
 #    - family: familyFontStyle
 #      fonts:
 #        - asset: fonts/ZCOOLQingKeHuangYou-Regular.ttf

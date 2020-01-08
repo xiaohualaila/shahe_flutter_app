@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:shahe_flutter_app/page/MapPage.dart';
+import 'package:shahe_flutter_app/page/map_page.dart';
 import 'package:shahe_flutter_app/page/first_page.dart';
 import 'package:shahe_flutter_app/page/me_page.dart';
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_color_plugin/flutter_color_plugin.dart';
 import 'package:shahe_flutter_app/dao/first_dao.dart';
+import 'package:shahe_flutter_app/model/weather_model.dart';
 
 const LIST = [
   {'title': '企业列表'},
@@ -12,12 +13,16 @@ const LIST = [
 ];
 
 class FirstPage extends StatefulWidget {
+
+
+
   @override
   _FirstPageState createState() => _FirstPageState();
 }
 
 class _FirstPageState extends State<FirstPage> {
   bool _loading = true;
+  Result wendu;
   @override
   Widget build(BuildContext context) {
     double paddingTop = MediaQuery.of(context).padding.top;
@@ -49,15 +54,15 @@ class _FirstPageState extends State<FirstPage> {
 
   Future<Null> _handleRefresh() async {
     try {
-    await FirstDao.fetch();
+      WeatherModel model = await FirstDao.fetch();
       setState(() {
-
-      //  _loading = false;
+        wendu = model.result;
+        _loading = false;
       });
     } catch (e) {
       print(e);
       setState(() {
-    //    _loading = false;
+        _loading = false;
       });
     }
     return null;
@@ -148,7 +153,7 @@ airContent() {
       Padding(
         padding: EdgeInsets.all(30),
         child: Text(
-          '75',
+        "",
           style: TextStyle(color: Colors.white, fontSize: 30),
         ),
       ),

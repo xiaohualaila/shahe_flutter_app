@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_color_plugin/flutter_color_plugin.dart';
 import 'package:shahe_flutter_app/dao/first_dao.dart';
 import 'package:shahe_flutter_app/model/weather_model.dart';
+import 'package:shahe_flutter_app/widget/loading_containter.dart';
 
 const LIST = [
   {'title': '企业列表'},
@@ -26,23 +27,26 @@ class _FirstPageState extends State<FirstPage> {
   @override
   Widget build(BuildContext context) {
     double paddingTop = MediaQuery.of(context).padding.top;
-    return Stack(
-      children: <Widget>[
-        backgound(),
-        Container(
-          margin: EdgeInsets.only(top: paddingTop),
-          child: Column(
-            children: <Widget>[
-              topContent(),
-              airContent(),
-              weather(),
-              wuranwu(),
-              weatherContent(),
-              bottomContent(),
-            ],
-          ),
+    return LoadingContainer(
+        isLoading: _loading,
+        child: Stack(
+          children: <Widget>[
+            backgound(),
+            Container(
+              margin: EdgeInsets.only(top: paddingTop+5),
+              child: Column(
+                children: <Widget>[
+                  topContent(),
+                  airContent(),
+                  weather(),
+                  wuranwu(),
+                  weatherContent(),
+                  bottomContent(),
+                ],
+              ),
+            ),
+          ],
         ),
-      ],
     );
   }
 

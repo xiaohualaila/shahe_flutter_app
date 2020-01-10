@@ -56,6 +56,7 @@ flutter:
     - images/first_bg.png
     - images/login_bg.png
     - images/map_shijing.png
+    - images/wel_bg.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

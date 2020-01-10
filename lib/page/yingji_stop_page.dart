@@ -186,7 +186,10 @@ class _YingjiStopState extends State<YingjiPage> {
               ),
               border: Border.all(color: Colors.white, width: 1),
             ),
-            child: _List()));
+          //  child: MediaQuery.removePadding(context: context, child: _List()),
+            child: _List()
+    
+    ));
   }
 
   item_title(String title) {

@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
 //        fontFamily: 'aliIcon'//设置字体
       ),
-      home: LoginPage(),
+      home: WelcomePage(),
       routes: <String,WidgetBuilder>{
         'about_soft':(BuildContext context)=>AboutSoftPage(),
         'setup':(BuildContext context)=>SetupPage(),
@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
         'http_test':(BuildContext context)=>HttpDemo(),
         'http_async_test':(BuildContext context)=>HttpAsyncDemo(),
         'share_prefs':(BuildContext context)=>SharePrefsDemo(),
+        'login_page':(BuildContext context)=>LoginPage(),
       }
     );
   }

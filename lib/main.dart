@@ -7,7 +7,7 @@ import 'package:shahe_flutter_app/me/update_app.dart';
 import 'package:shahe_flutter_app/test/http.dart';
 import 'package:shahe_flutter_app/test/http_async.dart';
 import 'package:shahe_flutter_app/test/share_prefs.dart';
-import 'login.dart';
+import 'page/login_page.dart';
 
 void main() => runApp(MyApp());
 

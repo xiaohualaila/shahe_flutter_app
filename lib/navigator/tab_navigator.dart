@@ -36,10 +36,10 @@ class _TabNavigatorState extends State<TabNavigator> {
         currentIndex: _currentIndex,
         type: BottomNavigationBarType.fixed,
         items: [
-          _bottomItem("首页", Icons.folder, 0),
-          _bottomItem("应急停产", Icons.explore, 1),
+          _bottomItem("首页", Icons.home, 0),
+          _bottomItem("应急停产", Icons.assignment, 1),
           _bottomItem("地图", Icons.map, 2),
-          _bottomItem("我的", Icons.near_me, 3),
+          _bottomItem("我的", Icons.person, 3),
         ],
         onTap: (index) {
           _contentPagerController.jumTopage(index);

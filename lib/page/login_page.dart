@@ -1,6 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_des/flutter_des.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
-import 'loading_dialog.dart';
+import 'package:shahe_flutter_app/dao/login_dao.dart';
+import 'package:shahe_flutter_app/util/md5_util.dart';
+import '../loading_dialog.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -8,6 +13,21 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+//客户端的向量参数  向量/偏移量
+  //static const _iv  = "cGFsbWRI";  u1BvOHzUOcklgNpn1MaWvdn9DT4LyzSX
+  static const _iv  = "12345678";
+//加密密钥
+  // static const _key  = "cGFsbWFwaWVuTQ==";
+  static const _key  = "u1BvOHzUOcklgNpn1MaWvdn9DT4LyzSX";
+  //设定参数
+  static const CIPHER_TYPE = "DES/CBC/PKCS7Padding"; //设定参数
+ String _text = "";
+  static String  _encryptBase64 ="";
+
+
+
+
   TextEditingController _userNameController = TextEditingController();
   TextEditingController _psdController = TextEditingController();
 
@@ -142,9 +162,9 @@ class _LoginPageState extends State<LoginPage> {
           onPressed: () {
             String username = _userNameController.text;
             String password = _psdController.text;
-            // _login(username, password);
-//            print(username);
-//            print(password);
+             _login(username, password);
+            print(username);
+            print(password);
 //            Navigator.of(context)
 //                .push(MaterialPageRoute(builder: (BuildContext context) {
 //              return TabNavigator();
@@ -164,5 +184,75 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  void _login(String username, String password) {
+
+
+    String appId = "09a81bbeead6416312a6d2df0418a449";
+    String method = "DEVICEAPI_GETUSERLIST";
+    String clienttype = "Android";
+    String timestamp = new DateTime.now().millisecondsSinceEpoch.toString();
+
+    var map = {
+      "username": "shadmin",
+      "password": "123456",};
+
+    String md5 = Md5Util.generateMd5(appId + method + timestamp + clienttype + json.encode(map));
+    var map1 = {
+      "appId": appId,
+      "java": true,
+      "method":method,
+      "timestamp":timestamp,
+      "clienttype": clienttype,
+      "object": map,
+      "secret": md5,
+    };
+
+    _text = json.encode(map1);
+
+    print(_text);
+   // crypt();
+    //_handleRefresh();
+
+  }
+
+  Future<Null> _handleRefresh() async {
+    try {
+     await LoginDao.fetch(_encryptBase64);
+      setState(() {
+
+      //  _loading = false;
+      });
+    } catch (e) {
+      print(e);
+      setState(() {
+      //  _loading = false;
+      });
+    }
+    return null;
+  }
+
+  Future<void> crypt() async {
+
+    try {
+      _encryptBase64 = await FlutterDes.encryptToBase64(_text, _key, iv: _iv);
+    } catch (e) {
+      print(e);
+    }
+  }
+
+
+
+  static String getKey(){
+    String md5_key =  Md5Util.generateMd5(_key);
+    md5_key = md5_key.substring(0, 16);
+    return md5_key;
+  }
+
+  static String getIv(){
+    String md5_iv =  Md5Util.generateMd5(_iv );
+    md5_iv = md5_iv.substring(md5_iv.length - 8);
+    return md5_iv;
   }
 }

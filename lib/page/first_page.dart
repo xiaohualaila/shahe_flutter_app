@@ -22,7 +22,7 @@ class FirstPage extends StatefulWidget {
 
 class _FirstPageState extends State<FirstPage> {
   bool _loading = true;
-  Result wendu;
+  Result _result;
   @override
   Widget build(BuildContext context) {
     double paddingTop = MediaQuery.of(context).padding.top;
@@ -56,7 +56,7 @@ class _FirstPageState extends State<FirstPage> {
     try {
       WeatherModel model = await FirstDao.fetch();
       setState(() {
-        wendu = model.result;
+        _result = model.result;
         _loading = false;
       });
     } catch (e) {
@@ -69,16 +69,7 @@ class _FirstPageState extends State<FirstPage> {
   }
 
 
-  topContent() {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        location(), //地址
-        updateTime('更新时间:'),
-        updateTime1('5分钟前'),
-      ],
-    );
-  }
+
 
   backgound() {
     return FractionallySizedBox(
@@ -87,25 +78,7 @@ class _FirstPageState extends State<FirstPage> {
     );
   }
 
-  location() {
-//    return Container(
-//      margin: EdgeInsets.only(top: 10, left: 10),
-//      padding: EdgeInsets.fromLTRB(12, 3, 12, 3),
-//      child: Row(
-//        children: <Widget>[
-//          Icon(
-//            Icons.add,
-//            color: Colors.white,
-//          ),
-//          Text(
-//            '沙河',
-//            style: TextStyle(color: Colors.white),
-//          )
-//        ],
-//      ),
-//      decoration: BoxDecoration(
-//          borderRadius: BorderRadius.circular(19), color: Color(0x30000000)),
-//    );
+  location(String city) {
     return Container(
       margin: EdgeInsets.only(left: 10),
       child: Chip(
@@ -114,7 +87,7 @@ class _FirstPageState extends State<FirstPage> {
           color: Colors.white,
           size: 18,
         ),
-        label: Text('沙河',style: TextStyle(color: Colors.white),),
+        label: Text(city,style: TextStyle(color: Colors.white),),
         padding: EdgeInsets.fromLTRB(12, 3, 12, 3),
    //     backgroundColor: Colors.black54,
         backgroundColor: ColorUtil.color('#077DFF'),
@@ -144,54 +117,71 @@ class _FirstPageState extends State<FirstPage> {
       ),
     );
   }
-}
 
-airContent() {
-  return Stack(
-    alignment: AlignmentDirectional.center,
-    children: <Widget>[
-      Padding(
-        padding: EdgeInsets.all(30),
-        child: Text(
-        "",
-          style: TextStyle(color: Colors.white, fontSize: 30),
-        ),
-      ),
-      Positioned(
-        bottom: 0,
-        left: 0,
-        right: 0,
-        child: Padding(
-          padding: EdgeInsets.only(top: 10),
-          child: Text(
-            '良',
-            style: TextStyle(color: Colors.white),
-            textAlign: TextAlign.center,
+  airContent() {
+    return Stack(
+      alignment: AlignmentDirectional.center,
+      children: <Widget>[
+        Padding(
+          padding: EdgeInsets.all(30),
+          child: Text(_result!=null?_result.wendu??'':'',
+            style: TextStyle(color: Colors.white, fontSize: 30),
           ),
         ),
-      )
-    ],
-  );
-}
+        Positioned(
+          bottom: 0,
+          left: 0,
+          right: 0,
+          child: Padding(
+            padding: EdgeInsets.only(top: 10),
+            child: Text(
+              '良',
+              style: TextStyle(color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        )
+      ],
+    );
+  }
 
-weather() {
-  return Padding(
-    padding: EdgeInsets.only(top: 5, bottom: 5),
-    child: Text(
-      '天气：晴',
+  topContent() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        location(_result!=null?_result.city??"":""), //地址
+        updateTime('更新时间:'),
+        updateTime1('5分钟前'),
+      ],
+    );
+  }
+
+  weather() {
+    return Padding(
+      padding: EdgeInsets.only(top: 5, bottom: 5),
+      child: Text(
+        '天气：${_result!=null?_result.forecast[0].type:''}',
+        style: TextStyle(color: Colors.white),
+        textAlign: TextAlign.center,
+      ),
+    );
+  }
+
+  wuranwu() {
+    return Text(
+      _result!=null?_result.ganmao:"",
       style: TextStyle(color: Colors.white),
       textAlign: TextAlign.center,
-    ),
-  );
+    );
+  }
+
 }
 
-wuranwu() {
-  return Text(
-    '首要污染物：PM10',
-    style: TextStyle(color: Colors.white),
-    textAlign: TextAlign.center,
-  );
-}
+
+
+
+
+
 
 weatherContent() {
   return Container(
@@ -239,13 +229,13 @@ weatherContent() {
 bottomContent() {
   return Expanded(
       child: Card(
-        margin: EdgeInsets.only(top: 100, left: 30, right: 30, bottom: 30),
+        margin: EdgeInsets.only(top: 100, left: 30, right: 30,bottom: 80),
         color: Colors.white,
         shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10.0))),  //设置圆角
         elevation: 5,
         child: Container(
-          padding: EdgeInsets.all(10),
-          child: _List(),
+          alignment:AlignmentDirectional.center,
+          child:_List(),
         ),
   ));
 }
